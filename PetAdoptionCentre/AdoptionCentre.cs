@@ -9,7 +9,7 @@ public class AdoptionCentre {
         Console.WriteLine("0. Exit");
         Console.WriteLine("Choose and pick which one you want:");
         int choice = int.Parse(Console.ReadLine() ?? "0"); // Nulling to 0 for safety, if something invalid is written
-        Pet adoptedPet = null; // This is the pet that will be adopted, if any
+        Pet adoptedPet; // This is the pet that will be adopted, if any
 
         switch (choice) {
             case 0:
@@ -20,7 +20,7 @@ public class AdoptionCentre {
                 Console.WriteLine("What is the name of the dog?");
                 string dogName = Console.ReadLine() ?? "none"; 
 
-                Console.WriteLine("What's it's age?");
+                Console.WriteLine("What's its age?");
                 int dogAge = int.Parse(Console.ReadLine() ?? "0");
 
                 Console.WriteLine("What breed is the dog?");
@@ -32,14 +32,14 @@ public class AdoptionCentre {
                 Console.WriteLine("What is the health of this dog? (Number from 1-10)");
                 string dogHealth = Console.ReadLine() ?? "0";
 
-                adoptedPet = new DogImpl(dogName, dogAge, dogType, dogIsAdopted, dogHealth);
+                adoptedPet = new Dog(dogName, dogAge, dogType, dogIsAdopted, dogHealth);
                 break;
             case 2:
                 Console.WriteLine("A kitty? Sure.");
                 Console.WriteLine("What is the name of the cat?");
                 string catName = Console.ReadLine() ?? "none"; 
 
-                Console.WriteLine("What's it's age?");
+                Console.WriteLine("What's its age?");
                 int catAge = int.Parse(Console.ReadLine() ?? "0");
 
                 Console.WriteLine("What breed is the cat?");
@@ -51,7 +51,7 @@ public class AdoptionCentre {
                 Console.WriteLine("What is the health of this cat? (Number from 1-10)");
                 string catHealth = Console.ReadLine() ?? "0";
 
-                adoptedPet = new CatImpl(catName, catAge, catType, catIsAdopted, catHealth);
+                adoptedPet = new Cat(catName, catAge, catType, catIsAdopted, catHealth);
                 break;
             case 3:
                 Console.WriteLine("A birb? Sure.");
@@ -70,7 +70,7 @@ public class AdoptionCentre {
                 Console.WriteLine("What is the health of this bird? (Number from 1-10)");
                 string birdHealth = Console.ReadLine() ?? "0";
 
-                adoptedPet = new BirdImpl(birdName, birdAge, birdType, birdIsAdopted, birdHealth);
+                adoptedPet = new Bird(birdName, birdAge, birdType, birdIsAdopted, birdHealth);
                 break;
             case 9:
                 Console.WriteLine("Idunno what this is, but sure.");
@@ -86,7 +86,7 @@ public class AdoptionCentre {
                 Console.WriteLine("Is it adopted? (true/false)");
                 bool otherIsAdopted = bool.Parse(Console.ReadLine() ?? "false"); 
                 
-                Console.WriteLine("What is the health of this creature? (Number from 1-10)");
+                Console.WriteLine("What is the health of this... creature? (Number from 1-10)");
                 string otherHealth = Console.ReadLine() ?? "0";
 
                 adoptedPet = new OtherPet(otherName, otherAge, otherType, otherIsAdopted, otherHealth);
@@ -98,7 +98,8 @@ public class AdoptionCentre {
 
         
 
-        string output = "none";
+        string output = $"You have adopted a {adoptedPet.GetType().Name} named {adoptedPet.Name}.";
+        Console.WriteLine(output);
 
         return output;
     }

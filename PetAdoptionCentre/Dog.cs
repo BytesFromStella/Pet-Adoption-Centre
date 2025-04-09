@@ -1,5 +1,5 @@
 namespace PetAdoptionCentre {
-    public abstract class Dog(string name, int age, string type, bool isAdopted, string health) 
+    public class Dog(string name, int age, string type, bool isAdopted, string health) 
                           :Pet(name, age, type, isAdopted, health) {
 
         // You have to use override when defining abstract implied methods when inheriting
