@@ -21,7 +21,7 @@ public class AdoptionCentre {
                 string dogName = Console.ReadLine() ?? "none"; 
 
                 Console.WriteLine("What's its age?");
-                int dogAge = int.Parse(Console.ReadLine() ?? "0");
+                float dogAge = float.Parse(Console.ReadLine() ?? "0");
 
                 Console.WriteLine("What breed is the dog?");
                 string dogType = Console.ReadLine() ?? "none";
@@ -40,7 +40,7 @@ public class AdoptionCentre {
                 string catName = Console.ReadLine() ?? "none"; 
 
                 Console.WriteLine("What's its age?");
-                int catAge = int.Parse(Console.ReadLine() ?? "0");
+                float catAge = float.Parse(Console.ReadLine() ?? "0");
 
                 Console.WriteLine("What breed is the cat?");
                 string catType = Console.ReadLine() ?? "none";
@@ -59,7 +59,7 @@ public class AdoptionCentre {
                 string birdName = Console.ReadLine() ?? "none"; 
 
                 Console.WriteLine("What's it's age?");
-                int birdAge = int.Parse(Console.ReadLine() ?? "0");
+                float birdAge = float.Parse(Console.ReadLine() ?? "0");
 
                 Console.WriteLine("What type of bird is it?");
                 string birdType = Console.ReadLine() ?? "none";
@@ -73,12 +73,13 @@ public class AdoptionCentre {
                 adoptedPet = new Bird(birdName, birdAge, birdType, birdIsAdopted, birdHealth);
                 break;
             case 9:
+            try {
                 Console.WriteLine("Idunno what this is, but sure.");
                 Console.WriteLine("What is the name of the mysterious creature?");
                 string otherName = Console.ReadLine() ?? "none"; 
 
                 Console.WriteLine("What's it's age?");
-                int otherAge = int.Parse(Console.ReadLine() ?? "0"); 
+                float otherAge = float.Parse(Console.ReadLine() ?? "0"); 
                 
                 Console.WriteLine("What is the type of this creature?");
                 string otherType = Console.ReadLine() ?? "none"; 
@@ -91,13 +92,21 @@ public class AdoptionCentre {
 
                 adoptedPet = new OtherPet(otherName, otherAge, otherType, otherIsAdopted, otherHealth);
                 break;
+            }
+            catch (Exception e) {
+                Console.WriteLine("(╯°□°）╯︵ ┻━┻) \n" +
+                                  "I don't know what you just wrote, bruh you trippin'.\n" +
+                                  "Please try again, and make it comprehensible this time...");
+                break;
+            }
+
             default:
                 Console.WriteLine("Huh? Try that again, but make it comprehensible.");
                 return "none";
         }
-
         
 
+    
         string output = $"You have adopted a {adoptedPet.GetType().Name} named {adoptedPet.Name}.";
         Console.WriteLine(output);
 

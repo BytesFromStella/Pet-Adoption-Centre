@@ -1,6 +1,6 @@
 namespace PetAdoptionCentre {
     public class Cat : Pet {
-        public Cat(string name, int age, string type, bool isAdopted, string health) : 
+        public Cat(string name, float age, string type, bool isAdopted, string health) : 
                 base(name, age, type, isAdopted, health) {
             // Constructor for Cat class
         }
@@ -11,4 +11,4 @@ namespace PetAdoptionCentre {
         }
 
     }
-}   
+}
